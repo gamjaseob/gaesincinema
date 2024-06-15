@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="booking.css">
     <title>영화 좌석 예매</title>
 </head>
 <body>
@@ -12,10 +12,10 @@
             <div class="movie-container">
                 <label for="movie">영화 선택: </label>
                 <select id="movie"> <!-- 수정하는 곳 -->
-                    <option value="10000" data-poster="poster1.jpeg" data-title="파묘" data-time="2024.06.15(토) 23:25 ~ 25:24" data-location="충북대학교 개신시네마 1관">파묘 (10000원)</option>
-                    <option value="9000" data-poster="poster2.jpeg" data-title="인사이드아웃2" data-time="2024.06.13(목) 14:00 ~ 16:00" data-location="충북대학교 개신시네마 2관">인사이드아웃2 (9000원)</option>
-                    <option value="8000" data-poster="poster3.jpeg" data-title="퓨리오사:매드맥스사가" data-time="2024.06.14(금) 19:00 ~ 21:00" data-location="충북대학교 개신시네마 3관">퓨리오사: 매드맥스 사가 (8000원)</option>
-                    <option value="7000" data-poster="poster4.jpeg" data-title="범죄도시4" data-time="2024.06.15(토) 11:00 ~ 13:00" data-location="충북대학교 개신시네마 4관">범죄도시4(7000원)</option>
+                    <option value="10000" data-poster="/image/poster1.jpeg" data-title="파묘" data-time="2024.06.15(토) 23:25 ~ 25:24" data-location="충북대학교 개신시네마 1관">파묘 (10000원)</option>
+                    <option value="9000" data-poster="/image/poster2.jpeg" data-title="인사이드아웃2" data-time="2024.06.13(목) 14:00 ~ 16:00" data-location="충북대학교 개신시네마 2관">인사이드아웃2 (9000원)</option>
+                    <option value="8000" data-poster="/image/poster3.jpeg" data-title="퓨리오사:매드맥스사가" data-time="2024.06.14(금) 19:00 ~ 21:00" data-location="충북대학교 개신시네마 3관">퓨리오사: 매드맥스 사가 (8000원)</option>
+                    <option value="7000" data-poster="/image/poster4.jpeg" data-title="범죄도시4" data-time="2024.06.15(토) 11:00 ~ 13:00" data-location="충북대학교 개신시네마 4관">범죄도시4(7000원)</option>
                 </select>
             </div>
 
@@ -125,6 +125,6 @@
             <button id="next-button" class="next-button">다음</button>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="booking.js"></script>
 </body>
 </html>

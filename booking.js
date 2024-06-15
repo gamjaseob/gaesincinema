@@ -80,7 +80,7 @@ container.addEventListener('click', (event) => {
 });
 
 nextButton.addEventListener('click', () => {
-  window.location.href = 'confirmation.html';
+  window.location.href = 'payment.html';
 });
 
 updateSelectedCount();

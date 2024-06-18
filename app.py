@@ -142,11 +142,6 @@ def cancel():
 def cancel2():
     return render_template('cancel2.html', current_user=current_user)
 
-# history.html
-@app.route('/history')
-def history():
-    return render_template('history.html', current_user=current_user)
-
 #앱 시작
 if __name__ == '__main__':
     #데이터베이스 생성

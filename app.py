@@ -132,15 +132,21 @@ def details9():
 def payment():
     return render_template('payment.html', current_user=current_user)
 
-# cancel.html
 @app.route('/cancel')
 def cancel():
-    return render_template('cancel.html', current_user=current_user)
+    movie_id = request.args.get('movie_id')
+    # 예매 취소 로직을 추가합니다.
+    # 예를 들어, 데이터베이스에서 해당 예매 정보를 삭제하거나 업데이트합니다.
+    return render_template('cancel.html')# cancel.html
 
-# cancel.html
 @app.route('/cancel2')
 def cancel2():
     return render_template('cancel2.html', current_user=current_user)
+
+# history.html
+@app.route('/history')
+def history():
+    return render_template('history.html', current_user=current_user)
 
 #앱 시작
 if __name__ == '__main__':

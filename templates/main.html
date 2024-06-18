@@ -14,8 +14,14 @@
         <nav>
             <ul>
                 <li><a href="{{ url_for('main') }}">현재 상영작</a></li>
-                <li><a href="{{ url_for('booking') }}">영화 예매</a></li>
-                <li><a href="{{ url_for('cancel') }}">예매 취소</a></li>
+                <li><a href="{{ url_for('history') }}">예매 내역</a></li>
+                <li>
+                    {% if current_user.is_authenticated %}
+                        <a href="">{{ current_user.name }}님</a>
+                    {% else %}
+                        <a href="">게스트</a>
+                    {% endif %}
+                    </li>
                 <li>
                 {% if current_user.is_authenticated %}
                     <a href="{{ url_for('logout') }}">로그아웃</a>
@@ -24,7 +30,7 @@
                 {% endif %}
                 </li>
             </ul>
-        </nav>  
+        </nav> 
     </header>
 
     <main>
@@ -37,7 +43,6 @@
                     <div class="overlay">
                         <a href="{{ url_for('details1') }}" class="btn">상세정보</a>
                         <a href="{{ url_for('booking', movie_id = 1) }}" class="btn">예매하기</a>
-                        <a href="{{ url_for('cancel', movie_id = 1) }}" class="btn">취소하기</a>
                     </div>
                 </div>
 
@@ -46,7 +51,6 @@
                     <div class="overlay">
                         <a href="{{ url_for('details2') }}" class="btn">상세정보</a>
                         <a href="{{ url_for('booking', movie_id = 2) }}" class="btn">예매하기</a>
-                        <a href="{{ url_for('cancel', movie_id = 2) }}" class="btn">취소하기</a>
                     </div>
                 </div>                
 
@@ -55,7 +59,6 @@
                     <div class="overlay">
                         <a href="{{ url_for('details3') }}" class="btn">상세정보</a>
                         <a href="{{ url_for('booking', movie_id = 3) }}" class="btn">예매하기</a>
-                        <a href="{{ url_for('cancel', movie_id = 3) }}" class="btn">취소하기</a>
                     </div>
                 </div>
 
@@ -64,7 +67,6 @@
                     <div class="overlay">
                         <a href="{{ url_for('details4') }}" class="btn">상세정보</a>
                         <a href="{{ url_for('booking', movie_id = 4) }}" class="btn">예매하기</a>
-                        <a href="{{ url_for('cancel', movie_id = 4) }}" class="btn">취소하기</a>
                     </div>
                 </div>
 
@@ -73,7 +75,6 @@
                     <div class="overlay">
                         <a href="{{ url_for('details5') }}" class="btn">상세정보</a>
                         <a href="{{ url_for('booking', movie_id = 5) }}" class="btn">예매하기</a>
-                        <a href="{{ url_for('cancel', movie_id = 5) }}" class="btn">취소하기</a>
                     </div>
                 </div>
 
@@ -82,7 +83,6 @@
                     <div class="overlay">
                         <a href="{{ url_for('details6') }}" class="btn">상세정보</a>
                         <a href="{{ url_for('booking', movie_id = 6) }}" class="btn">예매하기</a>
-                        <a href="{{ url_for('cancel', movie_id = 6) }}" class="btn">취소하기</a>
                     </div>
                 </div>
 
@@ -91,7 +91,6 @@
                     <div class="overlay">
                         <a href="{{ url_for('details7') }}" class="btn">상세정보</a>
                         <a href="{{ url_for('booking', movie_id = 7) }}" class="btn">예매하기</a>
-                        <a href="{{ url_for('cancel', movie_id = 7) }}" class="btn">취소하기</a>
                     </div>
                 </div>
 
@@ -100,7 +99,6 @@
                     <div class="overlay">
                         <a href="{{ url_for('details8') }}" class="btn">상세정보</a>
                         <a href="{{ url_for('booking', movie_id = 8) }}" class="btn">예매하기</a>
-                        <a href="{{ url_for('cancel', movie_id = 8) }}" class="btn">취소하기</a>
                     </div>
                 </div>
 
@@ -109,7 +107,6 @@
                     <div class="overlay">
                         <a href="{{ url_for('details9') }}" class="btn">상세정보</a>
                         <a href="{{ url_for('booking', movie_id = 9) }}" class="btn">예매하기</a>
-                        <a href="{{ url_for('cancel', movie_id = 9) }}" class="btn">취소하기</a>
                     </div>
                 </div>
             </div>

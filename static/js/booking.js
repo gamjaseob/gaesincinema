@@ -16,27 +16,15 @@ let ticketPrice = +movieSelect.value;
 populateUI();
 
 function populateUI() {
-  const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) || [];
-  const occupiedSeats = JSON.parse(localStorage.getItem('occupiedSeats')) || [];
-
-  selectedSeats.forEach((seatIndex) => {
-    if (seats[seatIndex]) {
-      seats[seatIndex].classList.add('selected');
-    }
-  });
-
-  occupiedSeats.forEach((seatIndex) => {
-    if (seats[seatIndex]) {
-      seats[seatIndex].classList.add('occupied');
-    }
-  });
-
   const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
 
   if (selectedMovieIndex !== null) {
     movieSelect.selectedIndex = selectedMovieIndex;
     updateMovieInfo();
   }
+
+  updateSelectedCount();
+  loadSeats();
 }
 
 function setMovieData(movieIndex, moviePrice) {
@@ -59,12 +47,12 @@ function updateSelectedCount() {
   const selectedSeatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
   const selectedSeatsNames = [...selectedSeats].map((seat) => seat.textContent);
 
-  localStorage.setItem('selectedSeats', JSON.stringify(selectedSeatsIndex));
+  const movieIndex = movieSelect.selectedIndex;
+  localStorage.setItem(`selectedSeats_${movieIndex}`, JSON.stringify(selectedSeatsIndex));
 
   count.textContent = selectedSeatCount;
   total.textContent = selectedSeatCount * ticketPrice;
   
-  // 정보 패널 업데이트
   selectedSeatsText.textContent = selectedSeatsNames.join(', ') || '-';
   totalPriceText.textContent = selectedSeatCount * ticketPrice;
 }
@@ -72,7 +60,27 @@ function updateSelectedCount() {
 function setOccupiedSeats() {
   const occupiedSeats = document.querySelectorAll('.row .seat.occupied');
   const occupiedSeatsIndex = [...occupiedSeats].map((seat) => [...seats].indexOf(seat));
-  localStorage.setItem('occupiedSeats', JSON.stringify(occupiedSeatsIndex));
+  const movieIndex = movieSelect.selectedIndex;
+  localStorage.setItem(`occupiedSeats_${movieIndex}`, JSON.stringify(occupiedSeatsIndex));
+}
+
+function loadSeats() {
+  const movieIndex = movieSelect.selectedIndex;
+
+  const selectedSeats = JSON.parse(localStorage.getItem(`selectedSeats_${movieIndex}`)) || [];
+  const occupiedSeats = JSON.parse(localStorage.getItem(`occupiedSeats_${movieIndex}`)) || [];
+
+  seats.forEach((seat, index) => {
+    seat.classList.remove('selected', 'occupied');
+    if (selectedSeats.includes(index)) {
+      seat.classList.add('selected');
+    }
+    if (occupiedSeats.includes(index)) {
+      seat.classList.add('occupied');
+    }
+  });
+
+  updateSelectedCount();
 }
 
 movieSelect.addEventListener('change', (event) => {
@@ -80,7 +88,7 @@ movieSelect.addEventListener('change', (event) => {
   updateMovieInfo();
   
   setMovieData(event.target.selectedIndex, ticketPrice);
-  updateSelectedCount();
+  loadSeats();
 });
 
 container.addEventListener('click', (event) => {
@@ -92,10 +100,24 @@ container.addEventListener('click', (event) => {
 
 nextButton.addEventListener('click', () => {
   const selectedSeats = document.querySelectorAll('.row .seat.selected');
+  const movieIndex = movieSelect.selectedIndex;
+
+  const selectedSeatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
+  const selectedSeatsNames = [...selectedSeats].map(seat => seat.textContent);
+
+  // 예매 데이터 저장
+  localStorage.setItem(`selectedSeats_${movieIndex}`, JSON.stringify(selectedSeatsIndex));
+  localStorage.setItem(`selectedSeatsNames_${movieIndex}`, JSON.stringify(selectedSeatsNames));
+  localStorage.setItem(`moviePoster_${movieIndex}`, moviePoster.src);
+  localStorage.setItem(`movieTitle_${movieIndex}`, movieTitle.textContent);
+  localStorage.setItem(`movieTime_${movieIndex}`, movieTime.textContent);
+  localStorage.setItem(`movieLocation_${movieIndex}`, movieLocation.textContent);
+  localStorage.setItem('selectedMovieIndex', movieIndex);
+  localStorage.setItem('selectedMoviePrice', ticketPrice);
 
   selectedSeats.forEach(seat => {
-    seat.classList.remove('selected');
-    seat.classList.add('occupied');
+      seat.classList.remove('selected');
+      seat.classList.add('occupied');
   });
 
   updateSelectedCount();
@@ -124,5 +146,3 @@ if (movieId) {
 }
 
 document.getElementById('movie').dispatchEvent(new Event('change'));
-
-updateSelectedCount();

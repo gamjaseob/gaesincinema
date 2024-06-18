@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/history.css') }}">
+</head>
+<body>
+    <select id="movie"> <!-- 수정하는 곳 -->
+        <option value="10000" data-poster="{{ url_for('static', filename='image/poster1.jpeg') }}" data-title="파묘" data-time="2024.06.15(토) 23:25 ~ 25:24" data-location="충북대학교 개신시네마 1관">파묘 (10000원)</option>
+        <option value="9000" data-poster="{{ url_for('static', filename='image/poster2.jpeg') }}" data-title="인사이드아웃2" data-time="2024.06.13(목) 14:00 ~ 16:00" data-location="충북대학교 개신시네마 2관">인사이드아웃2 (9000원)</option>
+        <option value="8000" data-poster="{{ url_for('static', filename='image/poster3.jpeg') }}" data-title="퓨리오사:매드맥스사가" data-time="2024.06.14(금) 19:00 ~ 21:00" data-location="충북대학교 개신시네마 3관">퓨리오사: 매드맥스 사가 (8000원)</option>
+        <option value="7000" data-poster="{{ url_for('static', filename='image/poster4.jpeg') }}" data-title="범죄도시4" data-time="2024.06.15(토) 11:00 ~ 13:00" data-location="충북대학교 개신시네마 4관">범죄도시4(7000원)</option>
+    </select>
+    <div class="container">
+        <h1>Booking History</h1>
+        <div id="booking-history">
+            <!-- 예매 내역이 여기에 표시됩니다 -->
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/history.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaesin Cinema - Booking History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script>
+        const cancelUrl = "{{ url_for('cancel') }}"; // 예매 취소 URL을 스크립트로 추가
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('main') }}"><span>GAESIN</span> CINEMA</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main') }}">현재 상영작</a></li>
+                <li><a href="{{ url_for('booking') }}">영화 예매</a></li>
+                <li><a href="{{ url_for('history') }}">예매 내역</a></li>
+                <li>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('logout') }}">로그아웃</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">로그인</a>
+                {% endif %}
+                </li>
+            </ul>
+        </nav>  
+    </header>
+
+    <main>
+        <section class="bookingHistory">
+            <h2>예매 내역</h2>
+            <div class="bookingList" id="bookingList">
+                <!-- 예매 내역이 여기에 동적으로 추가됩니다 -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+        주소<br>
+        전화번호<br>
+        이메일
+        </p>
+    </footer>
+
+    <button id="upButton">UP</button>
+    <script src="{{ url_for('static', filename='js/history.js') }}"></script>
+</body>
+</html>

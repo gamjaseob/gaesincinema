@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퓨리오사: 매드맥스 사가</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('main') }}"><span>GAESIN</span> CINEMA</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main') }}">현재 상영작</a></li>
+                <li><a href="{{ url_for('booking') }}">영화 예매</a></li>
+                <li><a href="{{ url_for('history') }}">예매 내역</a></li>
+                <li>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('logout') }}">로그아웃</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">로그인</a>
+                {% endif %}
+                </li>
+            </ul>
+        </nav>  
+    </header>
+    
+    <main>
+        <section class="movie-details">
+            <h2>예고편</h2>
+            <div class="trailer-container">
+                <video src="{{ url_for('static', filename='video/trailer3.mp4') }}" autoplay controls></video>
+            </div>
+            <h2>퓨리오사: 매드맥스 사가</h2>
+            <p><strong>상영시간:</strong> 액션 / 148 분</p>
+            <p><strong>배우 정보:</strong> 안야 테일러 조이, 크리스 헴스워스, 톰 버크</p>
+            <p><strong>감독 정보:</strong> 조지 밀러 </p>
+            <h3>‘매드맥스’ 시리즈의 전설적인 사령관 ‘퓨리오사’의 대서사시</h3>
+            <p>       
+                문명 붕괴 45년 후,<br>
+                황폐해진 세상 속 누구에게도 알려지지 않은<br>
+                풍요가 가득한 ‘녹색의 땅’에서 자란 ‘퓨리오사’(안야 테일러-조이)는<br>
+                바이커 군단의 폭군 ‘디멘투스’(크리스 헴스워스)의 손에 모든 것을 잃고 만다.<br>
+                <br>
+                가족도 행복도 모두 빼앗기고 세상에 홀로 내던져진 ‘퓨리오사’는<br>
+                반드시 고향으로 돌아가겠다는 어머니와의 약속을 지키기 위해<br>
+                인생 전부를 건 복수를 시작하는데...<br>
+                <br>
+                ‘매드맥스’ 시리즈의 전설적인 사령관 ‘퓨리오사’의 대서사시<br>
+                5월 22일, 마침내 분노가 깨어난다!
+            </p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Gaesin Cinema © 2024. All rights reserved.</p>
+    </footer>
+</body>
+</html>

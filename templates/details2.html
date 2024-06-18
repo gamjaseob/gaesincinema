@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인사이드 아웃2</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('main') }}"><span>GAESIN</span> CINEMA</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main') }}">현재 상영작</a></li>
+                <li><a href="{{ url_for('booking') }}">영화 예매</a></li>
+                <li><a href="{{ url_for('history') }}">예매 내역</a></li>
+                <li>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('logout') }}">로그아웃</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">로그인</a>
+                {% endif %}
+                </li>
+            </ul>
+        </nav>  
+    </header>
+    
+    <main>
+        <section class="movie-details">
+            <h2>예고편</h2>
+            <div class="trailer-container">
+                <video src="{{ url_for('static', filename='video/trailer2.mp4') }}" autoplay controls></video>
+            </div>
+            <h2>인사이드 아웃2</h2>
+            <p><strong>상영시간:</strong> 애니메이션 / 96 분</p>
+            <p><strong>배우 정보:</strong> 에이미 포엘러, 마야 호크, 루이스 블랙, 필리스 스미스, 토니 헤일</p>
+            <p><strong>감독 정보:</strong> 켈시 만</p>
+            <h3>디즈니·픽사의 대표작 ‘인사이드 아웃’</h3>
+            <p>    
+                새로운 감정과 함께 돌아오다!<br>
+                <br>
+                13살이 된 라일리의 행복을 위해 매일 바쁘게 머릿속 감정 컨트롤 본부를 운영하는<br>
+                ‘기쁨’, ‘슬픔’, ‘버럭’, ‘까칠’, ‘소심’.<br>
+                <br>
+                그러던 어느 날,<br>
+                낯선 감정인 ‘불안’, ‘당황’, ‘따분’, ‘부럽’이가 본부에 등장하고,<br>
+                언제나 최악의 상황을 대비하며 제멋대로인 ‘불안’이와 기존 감정들은 계속 충돌한다.<br>
+                <br>
+                결국 새로운 감정들에 의해 본부에서 쫓겨나게 된 기존 감정들은<br>
+                다시 본부로 돌아가기 위해 위험천만한 모험을 시작하는데…<br>
+                <br>
+                2024년, 전 세계를 공감으로 물들인 유쾌한 상상이 다시 시작된다!
+            </p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Gaesin Cinema © 2024. All rights reserved.</p>
+    </footer>
+</body>
+</html>

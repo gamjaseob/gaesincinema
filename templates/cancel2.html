@@ -1,0 +1,20 @@
+<!DOCTYPE html> <!-- 예매완료 화면 -->
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/booking.css') }}">
+    <title>예매 취소</title>
+</head>
+<body>
+    <div class="confirmation-container">
+        <h1>취소가 완료되었습니다, 감사합니다</h1>
+        <button id="confirm-button" class="confirm-button">확인</button>
+    </div>
+    <script>
+        document.getElementById('confirm-button').addEventListener('click', () => {
+            window.location.href = "{{ url_for('main') }}";
+        });
+    </script>
+</body>
+</html>

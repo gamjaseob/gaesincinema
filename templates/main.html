@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaesin Cinema</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('main') }}"><span>GAESIN</span> CINEMA</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main') }}">현재 상영작</a></li>
+                <li><a href="{{ url_for('history') }}">예매 내역</a></li>
+                <li>
+                    {% if current_user.is_authenticated %}
+                        <a href="">{{ current_user.name }}님</a>
+                    {% else %}
+                        <a href="">게스트</a>
+                    {% endif %}
+                    </li>
+                <li>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('logout') }}">로그아웃</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">로그인</a>
+                {% endif %}
+                </li>
+            </ul>
+        </nav> 
+    </header>
+
+    <main>
+        <section class="nowShowing">
+            <h2>현재 상영작</h2>
+            <div class="movieGallery">
+
+                <div class="moviePoster">
+                    <img src="{{ url_for('static', filename='image/poster1.jpg') }}" alt="Movie Poster 1">
+                    <div class="overlay">
+                        <a href="{{ url_for('details1') }}" class="btn">상세정보</a>
+                        <a href="{{ url_for('booking', movie_id = 1) }}" class="btn">예매하기</a>
+                    </div>
+                </div>
+
+                <div class="moviePoster">
+                    <img src="{{ url_for('static', filename='image/poster2.jpeg') }}" alt="Movie Poster 2">
+                    <div class="overlay">
+                        <a href="{{ url_for('details2') }}" class="btn">상세정보</a>
+                        <a href="{{ url_for('booking', movie_id = 2) }}" class="btn">예매하기</a>
+                    </div>
+                </div>                
+
+                <div class="moviePoster">
+                    <img src="{{ url_for('static', filename='image/poster3.jpeg') }}" alt="Movie Poster 3">
+                    <div class="overlay">
+                        <a href="{{ url_for('details3') }}" class="btn">상세정보</a>
+                        <a href="{{ url_for('booking', movie_id = 3) }}" class="btn">예매하기</a>
+                    </div>
+                </div>
+
+                <div class="moviePoster">
+                    <img src="{{ url_for('static', filename='image/poster4.jpeg') }}" alt="Movie Poster 4">
+                    <div class="overlay">
+                        <a href="{{ url_for('details4') }}" class="btn">상세정보</a>
+                        <a href="{{ url_for('booking', movie_id = 4) }}" class="btn">예매하기</a>
+                    </div>
+                </div>
+
+                <div class="moviePoster">
+                    <img src="{{ url_for('static', filename='image/poster5.jpg') }}" alt="Movie Poster 5">
+                    <div class="overlay">
+                        <a href="{{ url_for('details5') }}" class="btn">상세정보</a>
+                        <a href="{{ url_for('booking', movie_id = 5) }}" class="btn">예매하기</a>
+                    </div>
+                </div>
+
+                <div class="moviePoster">
+                    <img src="{{ url_for('static', filename='image/poster6.jpg') }}" alt="Movie Poster 6">
+                    <div class="overlay">
+                        <a href="{{ url_for('details6') }}" class="btn">상세정보</a>
+                        <a href="{{ url_for('booking', movie_id = 6) }}" class="btn">예매하기</a>
+                    </div>
+                </div>
+
+                <div class="moviePoster">
+                    <img src="{{ url_for('static', filename='image/poster7.jpg') }}" alt="Movie Poster 7">
+                    <div class="overlay">
+                        <a href="{{ url_for('details7') }}" class="btn">상세정보</a>
+                        <a href="{{ url_for('booking', movie_id = 7) }}" class="btn">예매하기</a>
+                    </div>
+                </div>
+
+                <div class="moviePoster">
+                    <img src="{{ url_for('static', filename='image/poster8.jpg') }}" alt="Movie Poster 8">
+                    <div class="overlay">
+                        <a href="{{ url_for('details8') }}" class="btn">상세정보</a>
+                        <a href="{{ url_for('booking', movie_id = 8) }}" class="btn">예매하기</a>
+                    </div>
+                </div>
+
+                <div class="moviePoster">
+                    <img src="{{ url_for('static', filename='image/poster9.jpg') }}" alt="Movie Poster 9">
+                    <div class="overlay">
+                        <a href="{{ url_for('details9') }}" class="btn">상세정보</a>
+                        <a href="{{ url_for('booking', movie_id = 9) }}" class="btn">예매하기</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+        주소<br>
+        전화번호<br>
+        이메일
+        </p>
+    </footer>
+
+    <button id="upButton">UP</button>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

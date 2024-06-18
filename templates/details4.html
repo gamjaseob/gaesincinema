@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>범죄도시4</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('main') }}"><span>GAESIN</span> CINEMA</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main') }}">현재 상영작</a></li>
+                <li><a href="{{ url_for('booking') }}">영화 예매</a></li>
+                <li><a href="{{ url_for('login') }}">로그인</a></li>
+                <li><a href="">예매 내역</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="movie-details">
+            <h2>예고편</h2>
+            <div class="trailer-container">
+                <video src="{{ url_for('static', filename='video/trailer4.mp4') }}" autoplay controls></video>
+            </div>
+            <h2>범죄도시4</h2>
+            <p><strong>상영시간:</strong> 범죄, 액션 / 109 분 </p>
+            <p><strong>배우 정보:</strong> 마동석, 김무열, 박지환, 이동휘, 이범수, 김민재, 이지훈, 이주빈</p>
+            <p><strong>감독 정보:</strong> 허명행 </p>
+            <h3>나쁜 놈 잡는데 국경도 영역도 제한 없다!</h3>
+            <p>       
+                신종 마약 사건 3년 뒤,<br>
+                괴물형사 ‘마석도’(마동석)와 서울 광수대는 배달앱을 이용한 마약 판매 사건을 수사하던 중<br>
+                수배 중인 앱 개발자가 필리핀에서 사망한 사건이<br>
+                대규모 온라인 불법 도박 조직과 연관되어 있음을 알아낸다.<br>
+                <br>
+                필리핀에 거점을 두고 납치, 감금, 폭행, 살인 등으로<br>
+                대한민국 온라인 불법 도박 시장을 장악한 특수부대 용병 출신의 빌런 ‘백창기’(김무열)와<br>
+                한국에서 더 큰 판을 짜고 있는 IT업계 천재 CEO ‘장동철’(이동휘).<br>
+                <br>
+                ‘마석도’는 더 커진 판을 잡기 위해 ‘장이수’(박지환)에게 뜻밖의 협력을 제안하고<br>
+                광역수사대는 물론, 사이버수사대까지 합류해 범죄를 소탕하기 시작하는데…<br>
+                <br>
+                나쁜 놈 잡는데 국경도 영역도 제한 없다!<br>
+                업그레이드 소탕 작전! 거침없이 싹 쓸어버린다!<br>
+            </p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Gaesin Cinema © 2024. All rights reserved.</p>
+    </footer>
+</body>
+</html>
